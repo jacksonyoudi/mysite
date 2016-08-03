@@ -19,11 +19,5 @@ urlpatterns = patterns('',
     # Uncomment the next line to enable the admin:
     # url(r'^admin/', include(admin.site.urls)),
     url(r'^admin/', include(admin.site.urls)),
-    url('^hello/$',hello),
-    url('^time/$',current_datetime),
-    url('^time/plus/(\d{1,2})/$',hours_ahead),
-    url('^debugg/$',display_meta),
-
-    url('^search/$',search),
-    url('^contact/$',contact),
+    url('^test/$',test,{'a':'testtest debug'}),
 )

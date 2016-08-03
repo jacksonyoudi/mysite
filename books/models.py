@@ -1,5 +1,4 @@
 from django.db import models
-# Create your models here.
 
 class Publisher(models.Model):
     name = models.CharField(max_length=30)
@@ -11,8 +10,6 @@ class Publisher(models.Model):
 
     def __unicode__(self):
         return self.name
-    class Meta:
-        ordering = ['name']
 
 class Author(models.Model):
     first_name = models.CharField(max_length=30)
@@ -20,14 +17,14 @@ class Author(models.Model):
     email = models.EmailField()
 
     def __unicode__(self):
-        return  u'%s %s' %(self.first_name,self.last_name)
-
+        return u'%s %s' % (self.first_name, self.last_name)
 
 class Book(models.Model):
     title = models.CharField(max_length=100)
     authors = models.ManyToManyField(Author)
     publisher = models.ForeignKey(Publisher)
-    publisher_date = models.DateField()
+    publication_date = models.DateField()
+    num_pages = models.IntegerField(blank=True, null=True)
 
     def __unicode__(self):
         return self.title
